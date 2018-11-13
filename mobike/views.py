@@ -1,12 +1,17 @@
-from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render, render_to_response
+
+
+
+def main (request):
+    return render_to_response('mobike/main.html')
+
+
 
 def index(request):
     return HttpResponse("Pagina principal de MOBIKE")
 
-# def inicio(request):
-#    return render(request, 'mobike/inicio.html', {})
-#
+
 
 # def regis_view(request,pk):
 #    goku = get_object_or_404(Goku, pk=pk)
