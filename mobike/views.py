@@ -1,7 +1,17 @@
 from django.shortcuts import render
+from .models import Cliente
+
+
 
 def inicio(request):
     return render(request, 'mobike/inicio.html', {})
+
+
+
+def getCliente(request, ID_CLIENTE):
+    cliente = get_object_or_404(Cliente, pk=ID_CLIENTE)
+    return render(request, 'mobike/Cliente.html', {'cliente': cliente})
+
 
 
 def regis_view(request,pk):
