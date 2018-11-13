@@ -5,6 +5,5 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mobike.urls')),
+    path('mobike/', include('mobike.urls')),
 ]
-
