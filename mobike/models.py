@@ -11,11 +11,11 @@ class Cliente(models.Model):
     NOMBRE_COMPLETO = models.CharField(max_length=200)
     EDAD  = models.IntegerField()
     MEDIO_PAGO = models.CharField(max_length=30, choices=MEDIO_PAGO)
-    NUMERO_CELULAR = models.CharField(max_length=200)    
+    NUMERO_CELULAR = models.CharField(max_length=200)
     EMAIL = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.NOMBRECOMPLETO
+        return self.NOMBRE_COMPLETO
 
 class Bicicleta(models.Model):
     ESTADO_CANDADO = (
