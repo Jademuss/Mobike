@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.main, name='main'),
     path('cliente/<int:ID_CLIENTE>/', views.getCliente, name='getCliente'),
+    path('obtener-disponibles/', views.getDisponibles, name='getDisponibles'),
     #path('inicio/regis/', views.regis, name= 'regis),
     #path('inicio/cli_lista/', views.cli_lista, name='cli_lista'),
     #path('inicio/cli_lista/<int:pk>/', views.regis_view, name='regis_view'),

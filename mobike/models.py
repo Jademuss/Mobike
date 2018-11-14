@@ -28,7 +28,7 @@ class Bicicleta(models.Model):
     ESTADO_CANDADO  = models.CharField(max_length=200, choices=ESTADO_CANDADO)
 
     def __str__(self):
-        return self.ID_MOBIKE
+        return self.QR
 
 class Arriendo(models.Model):
     fecha_ingreso =models.DateTimeField()

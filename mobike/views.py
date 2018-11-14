@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, render_to_response
-from .models import Cliente
+from .models import Cliente, Bicicleta
 
 
 
@@ -11,7 +11,14 @@ def main (request):
 
 def getCliente(request, ID_CLIENTE):
     cliente = get_object_or_404(Cliente, pk=ID_CLIENTE)
-    return render(request, 'mobike/Cliente.html', {'cliente': cliente})
+    return render(request, 'mobike/ficha-cliente.html', {'cliente': cliente})
+
+
+
+def getDisponibles(request):
+    lista_bicicleta_disponible = Bicicleta.objects.filter(ESTADO_CANDADO="Libre")[:5]
+    context = {'lista_bicicleta_disponible': lista_bicicleta_disponible}
+    return render(request, 'mobike/bicicletas-disponibles.html', context)
 
 
 
