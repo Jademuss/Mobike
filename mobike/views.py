@@ -1,6 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render, render_to_response
+from django.shortcuts import get_object_or_404, render, render_to_response, redirect
 from .models import Cliente, Bicicleta
+from .forms import formularioCliente
 
 
 
@@ -22,10 +23,20 @@ def getDisponibles(request):
 
 
 
-# def regis_view(request,pk):
-#    goku = get_object_or_404(Goku, pk=pk)
-#    context = {'goku':goku}
-#    return render (request, 'mobike/goku_details.html',context)
+def addCliente(request):
+    if request.method == 'POST':
+        form = formularioCliente( request.POST,request.FILES)
+        if form.is_valid():
+            cliente = form.save(commit=False)
+            cliente.save()
+            pk=cliente.pk
+            #return render(request, 'mobike/ficha-cliente.html', )
+            #return redirect('cliente/', pk)
+            return render_to_response('mobike/main.html')
+    else:
+        form = formularioCliente()
+    context = {'form':form}
+    return render(request, 'mobike/registro-Cliente.html',context)
 
 
 
