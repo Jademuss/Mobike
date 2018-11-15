@@ -6,7 +6,6 @@ urlpatterns = [
     path('cliente/<int:ID_CLIENTE>/', views.getCliente, name='getCliente'),
     path('obtener-disponibles/', views.getDisponibles, name='getDisponibles'),
     path('agregarCliente/', views.addCliente, name= 'addCliente'),
-    #path('inicio/cli_lista/', views.cli_lista, name='cli_lista'),
-    #path('inicio/cli_lista/<int:pk>/', views.regis_view, name='regis_view'),
+    path('agregarArriendo/', views.addArriendo, name= 'addArriendo'),
     #path('inicio/<int:pk>/edit/', views.regis_edit , name ='regis_edit'),
 ]
