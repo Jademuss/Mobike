@@ -17,7 +17,7 @@ def getCliente(request, ID_CLIENTE):
 
 
 def getDisponibles(request):
-    lista_bicicleta_disponible = Bicicleta.objects.filter(ESTADO_CANDADO="Libre")[:5]
+    lista_bicicleta_disponible = Bicicleta.objects.filter(ESTADO_CANDADO="Bloqueado")[:5]
     context = {'lista_bicicleta_disponible': lista_bicicleta_disponible}
     return render(request, 'mobike/bicicletas-disponibles.html', context)
 
