@@ -24,18 +24,18 @@ class Bicicleta(models.Model):
 )
     ID_MOBIKE = models.AutoField(primary_key=True)
     COORDENADAS = models.CharField(max_length=200)
-    QR = models.CharField(max_length=200)
+    CODIGO_BICICLETA = models.CharField(max_length=140)
     ESTADO_CANDADO  = models.CharField(max_length=200, choices=ESTADO_CANDADO)
 
     def __str__(self):
-        return self.QR
+        return self.CODIGO_BICICLETA
 
 class Arriendo(models.Model):
-    fecha_ingreso =models.DateTimeField()
     ID_ARRIENDO = models.AutoField(primary_key=True)
+    CODIGO_ARRIENDO = models.CharField(max_length=140)
+    HORA_REGISTRO = models.TimeField(null=True)
     ID_MOBIKE = models.ForeignKey(Bicicleta, on_delete=models.CASCADE)
     ID_CLIENTE = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    #tiempo =models.DateTimeField()
 
     def __str__(self):
-        return self.ID_ARRIENDO
+        return self.CODIGO_ARRIENDO
